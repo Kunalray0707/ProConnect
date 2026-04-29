@@ -36,7 +36,7 @@ interface AuthContextValue {
   refreshSession: () => Promise<void>;
 }
 
-const AuthContext = createContext<AuthContextValue | undefined>(undefined);
+export const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
 const CURRENT_USER_KEY = 'cp-current-user';
 const PROFILES_KEY = 'cp-created-profiles';

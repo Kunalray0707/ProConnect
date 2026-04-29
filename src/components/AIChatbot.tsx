@@ -59,7 +59,7 @@ const AIChatbot: React.FC = () => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSend = (e: React.FormEvent) => {
+const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
     const trimmed = input.trim();
     if (!trimmed) return;
@@ -74,10 +74,6 @@ const AIChatbot: React.FC = () => {
       setMessages((prev) => [...prev, assistantMessage]);
       setIsThinking(false);
     }, 900);
-  };
-
-  const usePrompt = (prompt: string) => {
-    setInput(prompt);
   };
 
   return (
@@ -135,9 +131,9 @@ const AIChatbot: React.FC = () => {
           <div className="font-semibold text-[hsl(var(--foreground))] mb-3">Suggested prompts</div>
           <div className="flex flex-wrap gap-2">
             {suggestedPrompts.map((prompt) => (
-              <button
+<button
                 key={prompt}
-                onClick={() => usePrompt(prompt)}
+                onClick={() => setInput(prompt)}
                 className="rounded-full bg-white/90 px-3 py-2 text-xs text-[hsl(var(--foreground))] hover:bg-white"
                 type="button"
               >
